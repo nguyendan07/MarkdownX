@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Favicon and title -->
+    <title>BlogX</title>
+
+    <!-- Halfmoon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" integrity="sha384-B/WX979vnb0NdAdePrDXriPU/VvvKWOq0/w0/I8ZvtPhxq9A7MibwIiUR5bK64VW" crossorigin="anonymous">
+</head>
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-set-preferred-mode-onload="true">
+    <div class="page-wrapper with-navbar">
+        <div class="sticky-alerts"></div>
+        {% include "components/navbar.html" %}
+        <div class="content-wrapper" id="content">
+            {% block content %} {% endblock content %}
+        </div>
+    </div>
+
+    <!-- Halfmoon JS -->
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js" integrity="sha384-kEL+JYrrVMObVEa9cInRrIkxqNKRmAPsXihxHrqMKAKzn5wlLeIMpeEi6idTNr9N" crossorigin="anonymous"></script>
+    
+    <!-- Load Htmx from unpkg -->
+    <script src="https://unpkg.com/htmx.org@1.6.1" integrity="sha384-tvG/2mnCFmGQzYC1Oh3qxQ7CkQ9kMzYjWZSNtrRZygHPDDqottzEJsqS4oUVodhW" crossorigin="anonymous"></script>
+    <script>
+        document.body.addEventListener('htmx:configRequest', (e) => {
+            e.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        })
+    </script>
+</body>
+</html>
