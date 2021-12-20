@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "boilerplate"
+name = "blogx"
 version = "0.1.0"
-description = "A Minimalistic Modern Django Boilerplate"
+description = "This project is a Django/HTMX single-page application"
 authors = ["Nguyen Van Dan <nguyenvdan07@gmail.com>"]
 
 [tool.poetry.dependencies]
