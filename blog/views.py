@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import BlogForm
@@ -23,4 +24,9 @@ def create(request):
             return redirect('create', slug=blog.slug)
         else:
             return render(request, 'create_blog.html', {'form': form, 'errors': form.errors})
-    return render(request, 'create_blog.html', {'form': form, 'errors': None})
+    return render(request, 'create_blog.html', {'form': form, 'errors': None})\
+
+
+def preview(request):
+    content = request.POST['content']
+    return HttpResponse(content)
