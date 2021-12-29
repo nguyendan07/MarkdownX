@@ -12,6 +12,9 @@
     </a>
     <ul class="navbar-nav d-none d-md-flex ml-auto">
         {% if user.is_authenticated %}
+        <li class="nav-item" hx-boost="true">
+            <a class="nav-link" href= "{% url 'create' %}"> New Blog </a>
+        </li>
         <li class="nav-item" hx-post="{% url 'account_logout' %}" hx-trigger="click"
             hx-confirm="Are you sure you wish to log out?" hx-target="#content">
             <span class="nav-link"> Logout </span>
@@ -32,6 +35,7 @@
 
             <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1">
                 {% if user.is_authenticated %}
+                <a class="nav-link" href= "{% url 'create' %}"> New Blog </a>
                 <span class="nav-link" hx-post="{% url 'account_logout' %}" hx-trigger="click"
                     hx-confirm="Are you sure you wish to log out?" hx-target="#content">
                     Logout
