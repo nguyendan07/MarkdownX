@@ -1,9 +1,9 @@
 from django.urls import path
-from django.urls.resolvers import URLPattern
 
-from .views import home
+from .views import home, blog
 
 
 urlpatterns = [
-    path('', view=home, name='home')
+    path('', view=home, name='home'),
+    path('blog/<slug:slug>', view=blog, name='blog')
 ]
